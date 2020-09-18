@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            my name is {{getname()}} and i'm {{age}}
+            <button type="button" class="btn btn-info" 
+            (click)="onButtonClick()"
+            [disabled]="!allowClick">click</button>  
+            <h2>{{allowClick}}</h2>
+            <h3 *ngIf="buttonClicked; else secondP">{{btnClick}}</h3>
+            <ng-template #secondP>
+                <p >
+                    Button is not clicked!
+                </p>
+            </ng-template>
+            <input type="text" (input)="onInputChange($event)">
+            <br/>
+            <input type="text" [(ngModel)]="lastname">
+            <p>{{lastname}}</p>
+            <app-test *ngFor="let t of tests"></app-test>
+            <p *ngFor="let t of tests; let i = index">
+             {{'row: ' + (i + 1)}}
+            </p>
+        </div>
+    </div>
+</div>
